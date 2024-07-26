@@ -11,8 +11,8 @@ namespace EditorAttributes.Editor
 	{
 		private string buttonParamsDataFilePath;
 
-		private Dictionary<MethodInfo, bool> foldouts = new();
-		private Dictionary<MethodInfo, object[]> parameterValues = new();
+		private Dictionary<MethodInfo, bool> foldouts = new Dictionary<MethodInfo, bool>();
+		private Dictionary<MethodInfo, object[]> parameterValues = new Dictionary<MethodInfo, object[]>();
 
 		private MethodInfo[] functions;
 

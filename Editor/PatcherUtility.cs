@@ -150,7 +150,7 @@ namespace Nomnom.UnityProjectPatcher.Editor {
         }
 
         public static string GetScriptingDefineSymbols() {
-#if UNITY_2020_3_OR_NEWER
+#if UNITY_2021_3_OR_NEWER
             return PlayerSettings.GetScriptingDefineSymbols(NamedBuildTarget.Standalone);
 #else
             return PlayerSettings.GetScriptingDefineSymbolsForGroup(BuildTargetGroup.Standalone);
@@ -158,7 +158,7 @@ namespace Nomnom.UnityProjectPatcher.Editor {
         }
         
         public static void SetScriptingDefineSymbols(string symbols) {
-#if UNITY_2020_3_OR_NEWER
+#if UNITY_2021_3_OR_NEWER
             PlayerSettings.SetScriptingDefineSymbols(NamedBuildTarget.Standalone, symbols);
 #else
             PlayerSettings.SetScriptingDefineSymbolsForGroup(BuildTargetGroup.Standalone, symbols);

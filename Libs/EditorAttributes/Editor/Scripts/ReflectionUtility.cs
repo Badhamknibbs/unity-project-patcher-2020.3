@@ -215,7 +215,7 @@ namespace EditorAttributes.Editor
 
 		private static object GetValue(object source, string name, int index)
 		{
-			if (GetValue(source, name) is not IEnumerable enumerable) 
+			if (!(GetValue(source, name) is IEnumerable enumerable)) 
 				return null;
 
 			var enumerator = enumerable.GetEnumerator();

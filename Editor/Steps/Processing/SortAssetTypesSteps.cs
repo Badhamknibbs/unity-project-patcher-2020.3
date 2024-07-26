@@ -6,7 +6,7 @@ using Cysharp.Threading.Tasks;
 using Nomnom.UnityProjectPatcher.AssetRipper;
 using UnityEditor;
 using UnityEngine;
-#if UNITY_2020_3_OR_NEWER
+#if UNITY_2021_3_OR_NEWER
 using UnityEngine.Pool;
 #endif
 using Object = UnityEngine.Object;
@@ -188,7 +188,7 @@ namespace Nomnom.UnityProjectPatcher.Editor.Steps {
             }
             
             AssetDatabase.StartAssetEditing();
-#if UNITY_2020_3_OR_NEWER
+#if UNITY_2021_3_OR_NEWER
             using var _ = HashSetPool<string>.Get(out var folders);      
 #else
             var folders = new HashSet<string>();

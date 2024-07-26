@@ -1,6 +1,7 @@
 ﻿using System;
 using System.IO;
 using Cysharp.Threading.Tasks;
+using ICSharpCode.SharpZipLib.Core;
 using UnityEditor;
 using UnityEngine;
 

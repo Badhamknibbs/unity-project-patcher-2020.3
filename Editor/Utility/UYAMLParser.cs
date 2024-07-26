@@ -94,8 +94,8 @@ namespace Lachee.Utilities.Serialization
                 offset = nextOffset;
             } while (offset > 0);
 
-            while (_objects.TryPop(out var node))
-            {
+            while (_objects.Count > 0) {
+                var node = _objects.Pop();
                 if (node is UComponent comp)
                     return comp;
             }

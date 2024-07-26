@@ -53,7 +53,10 @@ namespace Lachee.Utilities.Serialization
         public Dictionary<string, UProperty> properties = new Dictionary<string, UProperty>();
 
         public bool Add(UProperty property)
-            => properties.TryAdd(property.name, property);
+        {
+            properties.Add(property.name, property);
+            return true;
+        }
     }
     /// <summary>A single asset/class</summary>
     public sealed class UComponent : UNode, IUPropertyCollection

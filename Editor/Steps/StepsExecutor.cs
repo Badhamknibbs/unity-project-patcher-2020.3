@@ -117,8 +117,8 @@ namespace Nomnom.UnityProjectPatcher.Editor.Steps {
                                 PatcherUtility.LockedAssemblies = false;
                                 EditorApplication.UnlockReloadAssemblies();
                             }
-                            
-#if UNITY_2020_3_OR_NEWER
+
+#if UNITY_2021_3_OR_NEWER
                             CompilationPipeline.RequestScriptCompilation(RequestScriptCompilationOptions.CleanBuildCache);
 #else
                             CompilationPipeline.RequestScriptCompilation();

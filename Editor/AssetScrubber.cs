@@ -18,7 +18,7 @@ using UnityEngine.SceneManagement;
 using UnityEngine.Video;
 using Debug = UnityEngine.Debug;
 
-#if UNITY_2020_3_OR_NEWER
+#if UNITY_2021_3_OR_NEWER
 using UnityEngine.Pool;
 #endif
 
@@ -754,8 +754,8 @@ namespace Nomnom.UnityProjectPatcher.Editor {
             for (var i = 0; i < searchInFolders.Length; i++) {
                 searchInFolders[i] = searchInFolders[i].ToAssetDatabaseSafePath();
             }
-            
-#if UNITY_2020_3_OR_NEWER
+
+#if UNITY_2021_3_OR_NEWER
             using var _ = ListPool<AssetCatalogue.Entry>.Get(out var entries);
 #else
             var entries = new List<AssetCatalogue.Entry>();
@@ -771,8 +771,8 @@ namespace Nomnom.UnityProjectPatcher.Editor {
                 .Where(x => !IgnoreFileExtensionsForProjectAssets.Any(y => y == Path.GetExtension(x.path)))
                 .Where(x => !IgnoreContains.Any(y => x.path.Contains(y)) && !IgnoreEndsWith.Any(y => Path.GetFileNameWithoutExtension(x.path).EndsWith(y)))
                 .ToArray();
-            
-#if UNITY_2020_3_OR_NEWER
+
+#if UNITY_2021_3_OR_NEWER
             using var __ = ListPool<(MonoScript, string assetPath, long fileId)>.Get(out var nonMonos);
             using var ___ = HashSetPool<string>.Get(out var usedTypes);
 #else
@@ -1055,7 +1055,7 @@ namespace Nomnom.UnityProjectPatcher.Editor {
         }
         
         private static IEnumerable<string> GetDefinitions(string text, params string[] names) {
-#if UNITY_2020_3_OR_NEWER
+#if UNITY_2021_3_OR_NEWER
             var namesString = $"({string.Join('|', names)})";
 #else
             var namesString = $"({string.Join("|", names)})";

@@ -1,7 +1,7 @@
 ﻿using System;
 using System.IO;
 using Cysharp.Threading.Tasks;
-#if !UNITY_2020_3_OR_NEWER
+#if !UNITY_2021_3_OR_NEWER
 using ICSharpCode.SharpZipLib.Zip;
 #endif
 using Nomnom.UnityProjectPatcher.AssetRipper;
@@ -249,7 +249,7 @@ namespace Nomnom.UnityProjectPatcher.Editor.Steps {
             
             // extract the zip to where we need it
             try {
-#if UNITY_2020_3_OR_NEWER
+#if UNITY_2021_3_OR_NEWER
                 Debug.Log($"Extracting to {finalPath}");
                 System.IO.Compression.ZipFile.ExtractToDirectory(zipOutputPath, finalPath);
 #else

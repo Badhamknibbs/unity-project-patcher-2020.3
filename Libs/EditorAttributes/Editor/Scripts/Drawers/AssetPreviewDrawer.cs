@@ -1,6 +1,6 @@
 using UnityEngine;
 using UnityEditor;
-using System.Drawing.Imaging;
+//using System.Drawing.Imaging;
 
 namespace EditorAttributes.Editor
 {
@@ -43,6 +43,6 @@ namespace EditorAttributes.Editor
 			return base.GetPropertyHeight(property, label) + imageHeight;
 		}
 
-		private Vector2 GetImageSize(Texture2D texture) => new(texture.width, texture.height);
+		private Vector2 GetImageSize(Texture2D texture) => new Vector2(texture.width, texture.height);
 	}
 }

@@ -58,7 +58,7 @@ namespace Nomnom.UnityProjectPatcher.Editor.Steps {
                 EditorUtility.DisplayDialog("Installing packages", $"Press \"OK\" to install the following packages: {string.Join(", ", missingPackages)}", "OK");
                 EditorUtility.DisplayProgressBar("Installing packages", $"Installing {missingPackages.Length} package{(missingPackages.Length == 1 ? string.Empty : "s")}", 0.5f);
 
-#if UNITY_2020_3_OR_NEWER
+#if UNITY_2021_3_OR_NEWER
                 var request = Client.AddAndRemove(missingPackages);
                 while (true) {
                     if (request.IsCompleted) break;

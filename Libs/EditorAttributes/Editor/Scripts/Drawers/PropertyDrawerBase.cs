@@ -3,6 +3,7 @@ using UnityEngine;
 using UnityEditor;
 using System.Reflection;
 using UnityEditorInternal;
+using System.Linq;
 
 namespace EditorAttributes.Editor
 {
@@ -91,7 +92,7 @@ namespace EditorAttributes.Editor
 			}
 			else
 			{
-				propertyPath = propertyPath[..cutPathIndex];
+				propertyPath = propertyPath.Remove(cutPathIndex);
 
 				return property.serializedObject.FindProperty(propertyPath).FindPropertyRelative(propertyName);
 			}
@@ -147,7 +148,7 @@ namespace EditorAttributes.Editor
 
 		public static object DrawField(Type fieldType, string fieldName, object fieldValue)
 		{
-			fieldName = char.ToUpper(fieldName[0]) + fieldName[1..]; // Uppercase the first character of the name
+			fieldName = char.ToUpper(fieldName[0]) + fieldName.Substring(1); // Uppercase the first character of the name
 
 			bool isDBNull = Convert.IsDBNull(fieldValue);
 
@@ -261,11 +262,11 @@ namespace EditorAttributes.Editor
 			}
 		}
 
-		public static Vector2Int Vector3IntToVector2Int(Vector3Int vector3Int) => new(vector3Int.x, vector3Int.y);
+		public static Vector2Int Vector3IntToVector2Int(Vector3Int vector3Int) => new Vector2Int(vector3Int.x, vector3Int.y);
 
 		public static Color GUIColorToColor(IColorAttribute colorAttribute)
 		{
-			if (colorAttribute.UseRGB) return new(colorAttribute.R / 255f, colorAttribute.G / 255f, colorAttribute.B / 255f);
+			if (colorAttribute.UseRGB) return new Color(colorAttribute.R / 255f, colorAttribute.G / 255f, colorAttribute.B / 255f);
 
 			return colorAttribute.Color switch
 			{
@@ -277,35 +278,35 @@ namespace EditorAttributes.Editor
 				GUIColor.Cyan => Color.cyan,
 				GUIColor.Magenta => Color.magenta,
 				GUIColor.Yellow => Color.yellow,
-				GUIColor.Orange => new(1f, 149f / 255f, 0f),
-				GUIColor.Brown => new(161f / 255f, 62f / 255f, 0f),
-				GUIColor.Purple => new(158f / 255f, 5f / 255f, 247f / 255f),
-				GUIColor.Pink => new(247f / 255f, 5f / 255f, 171f / 255f),
-				GUIColor.Lime => new(145f / 255f, 1f, 0f),
+				GUIColor.Orange => new Color(1f, 149f / 255f, 0f),
+				GUIColor.Brown => new Color(161f / 255f, 62f / 255f, 0f),
+				GUIColor.Purple => new Color(158f / 255f, 5f / 255f, 247f / 255f),
+				GUIColor.Pink => new Color(247f / 255f, 5f / 255f, 171f / 255f),
+				GUIColor.Lime => new Color(145f / 255f, 1f, 0f),
 				_ => Color.white
 			};
 		}
 
 		public static Color GUIColorToColor(IColorAttribute colorAttribute, float alpha)
 		{
-			if (colorAttribute.UseRGB) return new(colorAttribute.R / 255f, colorAttribute.G / 255f, colorAttribute.B / 255f, alpha);
+			if (colorAttribute.UseRGB) return new Color(colorAttribute.R / 255f, colorAttribute.G / 255f, colorAttribute.B / 255f, alpha);
 
 			return colorAttribute.Color switch
 			{
-				GUIColor.Black => new(Color.black.r, Color.black.g, Color.black.b, alpha),
-				GUIColor.Gray => new(Color.gray.r, Color.gray.g, Color.gray.b, alpha),
-				GUIColor.Red => new(Color.red.r, Color.red.g, Color.red.b, alpha),
-				GUIColor.Green => new(Color.green.r, Color.green.g, Color.green.b, alpha),
-				GUIColor.Blue => new(Color.blue.r, Color.blue.g, Color.blue.b, alpha),
-				GUIColor.Cyan => new(Color.cyan.r, Color.cyan.g, Color.cyan.b, alpha),
-				GUIColor.Magenta => new(Color.magenta.r, Color.magenta.g, Color.magenta.b, alpha),
-				GUIColor.Yellow => new(Color.yellow.r, Color.yellow.g, Color.yellow.b, alpha),
-				GUIColor.Orange => new(1f, 149f / 255f, 0f, alpha),
-				GUIColor.Brown => new(161f / 255f, 62f / 255f, 0f, alpha),
-				GUIColor.Purple => new(158f / 255f, 5f / 255f, 247f / 255f, alpha),
-				GUIColor.Pink => new(247f / 255f, 5f / 255f, 171f / 255f, alpha),
-				GUIColor.Lime => new(145f / 255f, 1f, 0f, alpha),
-				_ => new(Color.white.r, Color.white.g, Color.white.b, alpha)
+				GUIColor.Black => new Color(Color.black.r, Color.black.g, Color.black.b, alpha),
+				GUIColor.Gray => new Color(Color.gray.r, Color.gray.g, Color.gray.b, alpha),
+				GUIColor.Red => new Color(Color.red.r, Color.red.g, Color.red.b, alpha),
+				GUIColor.Green => new Color(Color.green.r, Color.green.g, Color.green.b, alpha),
+				GUIColor.Blue => new Color(Color.blue.r, Color.blue.g, Color.blue.b, alpha),
+				GUIColor.Cyan => new Color(Color.cyan.r, Color.cyan.g, Color.cyan.b, alpha),
+				GUIColor.Magenta => new Color(Color.magenta.r, Color.magenta.g, Color.magenta.b, alpha),
+				GUIColor.Yellow => new Color(Color.yellow.r, Color.yellow.g, Color.yellow.b, alpha),
+				GUIColor.Orange => new Color(1f, 149f / 255f, 0f, alpha),
+				GUIColor.Brown => new Color(161f / 255f, 62f / 255f, 0f, alpha),
+				GUIColor.Purple => new Color(158f / 255f, 5f / 255f, 247f / 255f, alpha),
+				GUIColor.Pink => new Color(247f / 255f, 5f / 255f, 171f / 255f, alpha),
+				GUIColor.Lime => new Color(145f / 255f, 1f, 0f, alpha),
+				_ => new Color(Color.white.r, Color.white.g, Color.white.b, alpha)
 			};
 		}
 	}
