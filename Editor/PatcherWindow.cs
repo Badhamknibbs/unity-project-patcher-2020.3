@@ -327,7 +327,7 @@ namespace Nomnom.UnityProjectPatcher.Editor {
                 
                 EditorApplication.delayCall += () => {
                     EditorUtility.DisplayProgressBar("Updating...", "Updating packages...", 0.5f);
-                    Client.AddAndRemove(urls.ToArray());
+                    foreach (string url in urls) Client.Add(url);
                     EditorUtility.ClearProgressBar();
                 };
             }

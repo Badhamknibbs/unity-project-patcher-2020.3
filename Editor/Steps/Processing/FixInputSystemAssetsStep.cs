@@ -47,8 +47,8 @@ namespace Nomnom.UnityProjectPatcher.Editor.Steps {
                     File.WriteAllText(newPath, json);
                     
                     AssetDatabase.Refresh();
-                    
-#if UNITY_2020_3_OR_NEWER
+
+#if UNITY_2021_3_OR_NEWER
                     var localNewPath = Path.GetRelativePath(Path.Combine(Application.dataPath, ".."), newPath);
 #else
                     var localNewPath = PathNetCore.GetRelativePath(Path.Combine(Application.dataPath, ".."), newPath);

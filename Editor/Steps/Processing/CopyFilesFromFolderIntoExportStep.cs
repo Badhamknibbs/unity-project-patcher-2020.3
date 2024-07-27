@@ -31,7 +31,7 @@ namespace Nomnom.UnityProjectPatcher.Editor.Steps {
             var arSettings = this.GetAssetRipperSettings();
             var files = Directory.GetFiles(_folder, "*.*", SearchOption.AllDirectories);
             foreach (var file in files) {
-#if UNITY_2020_3_OR_NEWER
+#if UNITY_2021_3_OR_NEWER
                 var relativePath = Path.GetRelativePath(_folder, file);
 #else
                 var relativePath = PathNetCore.GetRelativePath(_folder, file);

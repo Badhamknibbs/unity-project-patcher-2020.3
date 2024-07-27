@@ -14,8 +14,8 @@ namespace EditorAttributes.Editor
 		[Serializable]
 		private class FunctionParamData
 		{
-			public Dictionary<string, bool> foldouts = new();
-			public Dictionary<string, object[]> parameterValues = new();
+			public Dictionary<string, bool> foldouts = new Dictionary<string, bool>();
+			public Dictionary<string, object[]> parameterValues = new Dictionary<string, object[]>();
 		}
 
 		public const string PARAMS_DATA_LOCATION = "ProjectSettings/EditorAttributes";

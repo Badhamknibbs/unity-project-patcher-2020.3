@@ -44,6 +44,6 @@ namespace EditorAttributes.Editor
 			return imageAttribute.ImageHeight;
 		}
 
-        private Vector2 GetImageSize(Texture2D texture) => new(texture.width, texture.height);
+        private Vector2 GetImageSize(Texture2D texture) => new Vector2(texture.width, texture.height);
 	}
 }

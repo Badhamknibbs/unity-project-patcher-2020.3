@@ -181,7 +181,7 @@ namespace Lachee.Utilities.Serialization
             }
 
             // Seperate the parts
-            string[] parts = line.Split(':', 2);
+            string[] parts = line.Split(':');
             if (parts.Length == 1)
             {
                 if (_curObject is UArray arr)
@@ -306,7 +306,7 @@ namespace Lachee.Utilities.Serialization
                     parts = content.Split(',');
                     foreach (var part in parts)
                     {
-                        string[] sParts = part.Trim('{', '}', ' ').Split(':', 2);
+                        string[] sParts = part.Trim('{', '}', ' ').Split(':');
                         if (sParts.Length != 2)
                             throw new ParseException("Cannot parse non-key values inside a inline object!");
                         objValue.Add(new UProperty()

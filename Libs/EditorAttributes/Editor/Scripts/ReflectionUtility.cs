@@ -153,7 +153,7 @@ namespace EditorAttributes.Editor
 
 		public static bool IsPropertyCollection(SerializedProperty property)
 		{
-			var arrayField = FindField(property.propertyPath.Split(".")[0], property);
+			var arrayField = FindField(property.propertyPath.Split('.')[0], property);
 			var memberInfoType = GetMemberInfoType(arrayField);
 
 			return memberInfoType.IsArray || memberInfoType.GetInterfaces().Contains(typeof(IList));
@@ -192,15 +192,15 @@ namespace EditorAttributes.Editor
 			if (cutPathIndex == -1) // If the cutPathIndex is -1 it means that the property is not nested and we return null
 				return null;
 
-			var path = property.propertyPath[..cutPathIndex].Replace(".Array.data[", "[");
+			var path = property.propertyPath.Substring(0, cutPathIndex).Replace(".Array.data[", "[");
 			var elements = path.Split('.');
 
 			foreach (var element in elements)
 			{
 				if (element.Contains("["))
 				{
-					var elementName = element[..element.IndexOf("[")];
-					var index = Convert.ToInt32(element[element.IndexOf("[")..].Replace("[", "").Replace("]", ""));
+					var elementName = element.Substring(0, element.IndexOf("["));
+					var index = Convert.ToInt32(element.Substring(0, element.IndexOf("[")).Replace("[", "").Replace("]", ""));
 					
 					targetObject = GetValue(targetObject, elementName, index);
 				}

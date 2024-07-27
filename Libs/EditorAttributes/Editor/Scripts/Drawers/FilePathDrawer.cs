@@ -39,8 +39,11 @@ namespace EditorAttributes.Editor
 				if (filePathAttribute.GetRelativePath && !string.IsNullOrEmpty(filePath) && Path.IsPathFullyQualified(filePath))
 				{
 					string projectRoot = Application.dataPath[..^"Assets".Length];
-
+#if UNITY_2021_3_OR_NEWER
 					filePath = Path.GetRelativePath(projectRoot, filePath);
+#else
+					filePath = PathNetCore.GetRelativePath(projectRoot, filePath); // TODO cannot access?
+#endif
 				}
 
 				EditorPrefs.SetString($"{property.serializedObject.targetObject}_{property.propertyPath}_FilePath", filePath);

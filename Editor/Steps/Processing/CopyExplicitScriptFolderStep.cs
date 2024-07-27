@@ -57,8 +57,8 @@ namespace Nomnom.UnityProjectPatcher.Editor.Steps {
                         }
                         
                         if (fileName.StartsWith("__")) continue;
-                        
-#if UNITY_2020_3_OR_NEWER
+
+#if UNITY_2021_3_OR_NEWER
                         var relativePath = Path.GetRelativePath(fromFolder, file);
 #else
                         var relativePath = PathNetCore.GetRelativePath(fromFolder, file);

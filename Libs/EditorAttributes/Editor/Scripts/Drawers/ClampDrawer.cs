@@ -30,7 +30,7 @@ namespace EditorAttributes.Editor
                     break;
 
 				case SerializedPropertyType.Vector2Int:
-                    property.vector2IntValue = Vector3IntToVector2Int(ClampIntVector(minMaxX, minMaxY, minMaxZ, minMaxW, new(property.vector2IntValue.x, property.vector2IntValue.y)));
+                    property.vector2IntValue = Vector3IntToVector2Int(ClampIntVector(minMaxX, minMaxY, minMaxZ, minMaxW, (Vector3Int)new Vector2Int(property.vector2IntValue.x, property.vector2IntValue.y)));
 					break;
 
 				case SerializedPropertyType.Vector3:
