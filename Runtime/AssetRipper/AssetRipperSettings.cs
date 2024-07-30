@@ -7,7 +7,7 @@ using Newtonsoft.Json;
 using UnityEngine;
 using UnityEngine.Serialization;
 
-#if UNITY_2020_3_OR_NEWER
+#if UNITY_2021_3_OR_NEWER
 using EditorAttributes;
 #endif
 
@@ -238,14 +238,14 @@ namespace Nomnom.UnityProjectPatcher.AssetRipper {
     [Serializable]
     public struct Processing {
         [JsonProperty("EnablePrefabOutlining")]
-#if UNITY_2020_3_OR_NEWER
+#if UNITY_2021_3_OR_NEWER
         [Suffix("experimental")]
 #endif
         public bool enablePrefabOutlining;
 
         [JsonProperty("EnableStaticMeshSeparation")]
         [DefaultValue(false)]
-#if UNITY_2020_3_OR_NEWER
+#if UNITY_2021_3_OR_NEWER
         [Suffix("paid")]
 #endif
         [HideInInspector]
@@ -253,7 +253,7 @@ namespace Nomnom.UnityProjectPatcher.AssetRipper {
 
         [JsonProperty("EnableAssetDeduplication")]
         [DefaultValue(false)]
-#if UNITY_2020_3_OR_NEWER
+#if UNITY_2021_3_OR_NEWER
         [Suffix("paid")]
 #endif
         [HideInInspector]

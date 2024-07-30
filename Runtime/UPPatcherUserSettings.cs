@@ -1,6 +1,6 @@
 ﻿using System;
 using System.IO;
-#if UNITY_2020_3_OR_NEWER
+#if UNITY_2021_3_OR_NEWER
 using EditorAttributes;
 #endif
 using UnityEngine;
@@ -14,8 +14,8 @@ namespace Nomnom.UnityProjectPatcher {
         
         public string AssetRipperDownloadFolderPath => Path.GetFullPath(_assetRipperDownloadFolderPath);
         public string AssetRipperExportFolderPath => Path.GetFullPath(_assetRipperExportFolderPath);
-        
-#if UNITY_2020_3_OR_NEWER
+
+#if UNITY_2021_3_OR_NEWER
         [SerializeField, FolderPath(getRelativePath: false)]
         [Header("Where the game is installed")]
         [HelpBox(@"This path is absolute to your game folder. Such as: ""C:\Program Files (x86)\Steam\steamapps\common\Lethal Company""")]

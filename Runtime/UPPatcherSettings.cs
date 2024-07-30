@@ -7,7 +7,7 @@ using Nomnom.UnityProjectPatcher.UnityPackages;
 using UnityEngine;
 using Debug = UnityEngine.Debug;
 
-#if UNITY_2020_3_OR_NEWER
+#if UNITY_2021_3_OR_NEWER
 using EditorAttributes;
 #endif
 
@@ -46,7 +46,7 @@ namespace Nomnom.UnityProjectPatcher {
         public IReadOnlyCollection<FoundPackageInfo> ExactPackagesFound => _exactPackagesFound;
         public IReadOnlyCollection<GitPackageInfo> GitPackages => _gitPackages;
 
-#if UNITY_2020_3_OR_NEWER
+#if UNITY_2021_3_OR_NEWER
         [SerializeField, InlineButton(nameof(GetGameName), "Get", buttonWidth: 30)]
         private string? _gameName = null;
         
